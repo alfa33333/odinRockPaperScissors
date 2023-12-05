@@ -1,5 +1,3 @@
-console.log("hello world");
-
 const gameChoices = ["rock","paper","scissors"];
 
 function getComputerChoice(){    
