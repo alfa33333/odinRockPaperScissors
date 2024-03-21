@@ -50,20 +50,32 @@ function playRound(playerSelection, computerSelection){
 
 function game(){
 
-    console.log("Let's play best of 5")
+    // console.log("Let's play best of 5")
     let n=0
     let wins = 0
     let rock = document.getElementById('rock');
     let paper = document.getElementById('paper');
     let scissors = document.getElementById('scissors');
+    let resultContainer = document.getElementById('result');
+    let text = document.createElement('p');
     
     [rock, paper, scissors].forEach(playerChoice => {
         playerChoice.addEventListener('click', (e) => {
             let computerSelection = getComputerChoice();
-            let result = playRound(e.target.id, computerSelection);
-            console.log(result);
-        }
-        );
+            let player = e.target.id;
+            let result = playRound(player, computerSelection);
+                  if (result === 0)
+                    {
+                        text.textContent =  "A tie! redo the round!"
+                    } else if (result === 1) {
+                        text.textContent =  losePhrase(computerSelection,player);
+                    } else
+                    {
+                        text.textContent = "You win! " + player + " beats " +computerSelection;
+                        wins++;
+                    }
+            resultContainer.appendChild(text);
+        });
     });
     // rock.addEventListener('click', () => {
     //     alert("button clicked!");
@@ -95,3 +107,4 @@ function game(){
 }
 
 game();
+const div = document.getElementById('result');
