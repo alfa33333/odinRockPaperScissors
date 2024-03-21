@@ -53,6 +53,22 @@ function game(){
     console.log("Let's play best of 5")
     let n=0
     let wins = 0
+    let rock = document.getElementById('rock');
+    let paper = document.getElementById('paper');
+    let scissors = document.getElementById('scissors');
+    
+    [rock, paper, scissors].forEach(playerChoice => {
+        playerChoice.addEventListener('click', (e) => {
+            let computerSelection = getComputerChoice();
+            let result = playRound(e.target.id, computerSelection);
+            console.log(result);
+        }
+        );
+    });
+    // rock.addEventListener('click', () => {
+    //     alert("button clicked!");
+    // }
+    // );
     // while (n < 5) {
     //     let player = prompt("What do you play?")
     //     let computerSelection = getComputerChoice();
