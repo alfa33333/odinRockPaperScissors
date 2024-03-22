@@ -58,25 +58,39 @@ function game(){
     let scissors = document.getElementById('scissors');
     let resultContainer = document.getElementById('result');
     let text = document.createElement('p');
-    
+    let score = document.createElement('p');
+    resultContainer.appendChild(text);
+    resultContainer.appendChild(score);
     [rock, paper, scissors].forEach(playerChoice => {
         playerChoice.addEventListener('click', (e) => {
-            let computerSelection = getComputerChoice();
-            let player = e.target.id;
-            let result = playRound(player, computerSelection);
-                  if (result === 0)
-                    {
-                        text.textContent =  "A tie! redo the round!"
-                    } else if (result === 1) {
-                        text.textContent =  losePhrase(computerSelection,player);
-                    } else
-                    {
-                        text.textContent = "You win! " + player + " beats " +computerSelection;
-                        wins++;
-                    }
-            resultContainer.appendChild(text);
+
+                let computerSelection = getComputerChoice();
+                let player = e.target.id;
+                let result = playRound(player, computerSelection);
+                    if (result === 0)
+                        {
+                            text.textContent =  "A tie! redo the round!"
+                        } else if (result === 1) {
+                            text.textContent =  losePhrase(computerSelection,player);
+                        } else
+                        {
+                            text.textContent = "You win! " + player + " beats " +computerSelection;
+                            wins++;
+                            
+                        }
+                score.textContent = "Wins: " + wins;
+                if (wins > 4) {
+                    setTimeout(() => {
+                        wins = 0;
+                        alert("Congratulations you win the game!");
+                        text.textContent = "";
+                        score.textContent = "";
+                    }, 20)
+                    
+                }
         });
     });
+
     // rock.addEventListener('click', () => {
     //     alert("button clicked!");
     // }
@@ -107,4 +121,3 @@ function game(){
 }
 
 game();
-const div = document.getElementById('result');
