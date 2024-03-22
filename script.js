@@ -90,34 +90,6 @@ function game(){
                 }
         });
     });
-
-    // rock.addEventListener('click', () => {
-    //     alert("button clicked!");
-    // }
-    // );
-    // while (n < 5) {
-    //     let player = prompt("What do you play?")
-    //     let computerSelection = getComputerChoice();
-    //     let result = playRound(player, computerSelection)
-    //     if (result === 0)
-    //     {
-    //         console.log("A tie! redo the round!")
-    //         continue;
-    //     } else if (result === 1) {
-    //         console.log(losePhrase(computerSelection,player));
-    //     } else
-    //     {
-    //         console.log("You win! " + player + " beats " +computerSelection);
-    //         wins++;
-    //     }
-    //     n++;
-    // }
-    // if (wins >= 3){
-    //     console.log("Congratulations you win the game!")
-    // } else
-    // {
-    //     console.log("You lost the game.")
-    // }
 }
 
 game();
